@@ -16,7 +16,7 @@ def test_jsonschemasuccess():
 def test_jsonschemafailed():
     failed = None
     try:
-        validate(instance={"name" : "Eggs", "price" : 23}, schema=schema) 
+        validate(instance={"name" : "Eggs", "price" : "Invalid"}, schema=schema) 
         failed = False
     except :
         failed = True
