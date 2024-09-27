@@ -10,13 +10,15 @@ schema = {
 }
 
 
-
-
-"""validate(
-    instance={"name" : "Eggs", "price" : "Invalid"}, schema=schema,
-)"""
-
-def test_answer():
+def test_jsonschemasuccess():
     assert validate(instance={"name" : "Eggs", "price" : 34.99}, schema=schema) == None
 
-                               
+def test_jsonschemafailed():
+    failed = None
+    try:
+        validate(instance={"name" : "Eggs", "price" : 23}, schema=schema) 
+        failed = False
+    except :
+        failed = True
+        
+    assert failed == True               
